@@ -1,4 +1,3 @@
-![Screenshot (46)](https://github.com/user-attachments/assets/8040558a-fe0f-4722-a255-088ae3018eb0)
 # Employee Management System
 
 An ASP.NET Core MVC project implementing a layered architecture (DAL, BAL, Presentation) with CRUD functionality and the Repository pattern.
