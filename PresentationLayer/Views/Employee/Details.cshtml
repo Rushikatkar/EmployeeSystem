@@ -1,0 +1,31 @@
+﻿@model DAL.Entities.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h2>Employee Details</h2>
+
+<div class="form-group">
+    <label><strong>Name:</strong></label>
+    <p>@Model.Name</p>
+</div>
+
+<div class="form-group">
+    <label><strong>Email:</strong></label>
+    <p>@Model.Email</p>
+</div>
+
+<div class="form-group">
+    <label><strong>Position:</strong></label>
+    <p>@Model.Position.Name</p>
+</div>
+
+<div class="form-group">
+    <label><strong>Date of Joining:</strong></label>
+    <p>@Model.Date_Of_Joining.ToString("yyyy-MM-dd")</p>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DAL.Entities.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+
+<h2>Employee List</h2>
+
+<a asp-action="Create" class="btn btn-primary">Add New Employee</a>
+
+
+<table class="table table-bordered table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Date of Joining</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.Name</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Position.Name</td>
+                    <td>@employee.Date_Of_Joining.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@employee.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-warning btn-sm text-dark" style="background-color: yellow;">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Employees Found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

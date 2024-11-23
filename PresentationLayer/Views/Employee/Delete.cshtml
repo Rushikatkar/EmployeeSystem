@@ -1,0 +1,31 @@
+﻿@model DAL.Entities.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<h2>Delete Employee</h2>
+
+<div class="form-group">
+    <p class="text-warning"><strong>Are you sure you want to delete this employee?</strong></p>
+    <label><strong>Name:</strong></label>
+    <p>@Model.Name</p>
+    <label><strong>Email:</strong></label>
+    <p>@Model.Email</p>
+    <label><strong>Position:</strong></label>
+    <p>@Model.Position</p>
+    <label><strong>Date of Joining:</strong></label>
+    <p>@Model.Date_Of_Joining.ToString("yyyy-MM-dd")</p>
+</div>
+
+<form asp-action="Delete" method="post" onsubmit="return confirmDelete();">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this employee?");
+    }
+</script>
